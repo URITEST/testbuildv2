@@ -28,7 +28,7 @@ jobs:
       commands:
         - echo Logging in to quay.io...
         - docker login quay.io  -auth:
-          username: $QUAY_USERNAME
+           username: $QUAY_USERNAME
            password: $QUAY_PASSWORD
       commands:
         - echo Build completed on `date`
