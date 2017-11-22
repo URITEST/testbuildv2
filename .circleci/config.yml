@@ -17,7 +17,7 @@ jobs:
 
     working_directory: ~/repo
   steps:
-    -login
+    #-login
       commands:
         - echo Logging in to quay.io...
         - $(docker login quay.io)
