@@ -16,21 +16,21 @@ jobs:
       # - image: circleci/postgres:9.4
 
     working_directory: ~/repo
-  steps:
-    -creatimg:
-      commands:
-        - echo Build started on `date`
-        - echo Building the Docker image...          
-        - docker build -t testbuildv2:latest .
-        - docker tag testbuildv1:latest quay.io/uritest/testbuildv2:latest      
-    -deploy:
-          #-login
-      commands:
-        - echo Logging in to quay.io...
-        - docker login quay.io  -auth:
-           username: $QUAY_USERNAME
-           password: $QUAY_PASSWORD
-      commands:
-        - echo Build completed on `date`
-        - echo Pushing the Docker image...
-        - docker push quay.io/uritest/testbuildv2:latest
+    steps:
+      -creatimg:
+        commands:
+          - echo Build started on `date`
+          - echo Building the Docker image...          
+          - docker build -t testbuildv2:latest .
+          - docker tag testbuildv1:latest quay.io/uritest/testbuildv2:latest      
+      -deploy:
+        #-login
+        commands:
+          - echo Logging in to quay.io...
+          - docker login quay.io  -auth:
+             username: $QUAY_USERNAME
+             password: $QUAY_PASSWORD
+        commands:
+          - echo Build completed on `date`
+          - echo Pushing the Docker image...
+          - docker push quay.io/uritest/testbuildv2:latest
