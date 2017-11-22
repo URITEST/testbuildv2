@@ -23,7 +23,7 @@ jobs:
           - echo Building the Docker image...          
           - docker build -t testbuildv2:latest .
           - docker tag testbuildv1:latest quay.io/uritest/testbuildv2:latest      
-      -deploy:
+      -login_quay:
         #-login
         commands:
           - echo Logging in to quay.io...
@@ -31,6 +31,8 @@ jobs:
           -  auth:
              username: $QUAY_USERNAME
              password: $QUAY_PASSWORD
+      -deploy
+        commands:
           - echo Build completed on `date`
           - echo Pushing the Docker image...
           - docker push quay.io/uritest/testbuildv2:latest
