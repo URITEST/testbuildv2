@@ -3,22 +3,22 @@
 # Check https://circleci.com/docs/2.0/language-python/ for more details
 #
 version: 2
-jobs:
+phases:
   pre_build:
     commands:
       - echo Logging in to quay.io...
       - $(docker login quay.io)
-auth:
-  username: $QUAY_USERNAME
-  password: $QUAY_PASSWORD
-build:
-  commands:
-    - echo Build started on `date`
-    - echo Building the Docker image...          
-    - docker build -t testbuildv2:latest .
-    - docker tag testbuildv1:latest quay.io/uritest/testbuildv2:latest      
-post_build:
-  commands:
-    - echo Build completed on `date`
-    - echo Pushing the Docker image...
-    - docker push quay.io/uritest/testbuildv2:latest
+  auth:
+    username: $QUAY_USERNAME
+    password: $QUAY_PASSWORD
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...          
+      - docker build -t testbuildv2:latest .
+      - docker tag testbuildv1:latest quay.io/uritest/testbuildv2:latest      
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker push quay.io/uritest/testbuildv2:latest
