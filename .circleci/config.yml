@@ -5,7 +5,7 @@
 version: 2
 jobs:
   pre_build:
-    commands:
+      commands:
       - echo Logging in to quay.io...
       - $(docker login quay.io)
   auth:
