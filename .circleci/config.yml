@@ -17,8 +17,8 @@ jobs:
 
     working_directory: ~/repo
     
-    deploya:
-      -creatimg:
+    steps:
+      -create:
         commands:
           - echo Build started on `date`
           - echo Building the Docker image...          
