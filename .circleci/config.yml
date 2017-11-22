@@ -8,7 +8,7 @@ phases:
     commands:
       - echo Logging in to quay.io...
       - $(docker login quay.io)
-	auth:
+auth:
    	 username: $QUAY_USERNAME
    	 password: $QUAY_PASSWORD
   build:
