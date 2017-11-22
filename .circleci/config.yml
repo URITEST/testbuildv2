@@ -16,7 +16,7 @@ jobs:
       # - image: circleci/postgres:9.4
 
     working_directory: ~/repo
-   Deploya:
+    deploya:
       -creatimg:
         commands:
           - echo Build started on `date`
