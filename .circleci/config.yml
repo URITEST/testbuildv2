@@ -1,0 +1,8 @@
+version: 2
+jobs:
+   build:
+     docker:
+       - image: quay.io/uritest/python:test
+     steps:
+       - checkout
+       - run: echo "hello world"
